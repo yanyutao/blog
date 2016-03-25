@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/mkui-base.css"/>
+	<link rel="stylesheet" href="/stylesheets/style.css"/>
+</head>
+<body>
+<!--公用footer-->
+<% include ../public/header.html%>
+   
+   <article class="form mt-20 form-reg">
+	   <form method="post" action="/users/login">
+			<div class="group">
+				<input type="text" name="username" placeholder="请输入用户名" />
+			</div>
+			<div class="group">
+				<input type="password" name="password" placeholder="请输入密码" />
+			</div>
+			<div class="group">
+				<input type="submit" value="登录">
+			</div>
+	   </form>
+   </article>
+<!--公用footer-->
+<% include ../public/footer.html%>
+   
+</body>
+</html>

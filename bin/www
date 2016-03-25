@@ -1,22 +1,22 @@
-#!/usr/bin/env node
+#!/usr/bin/env node 表明是 node 可执行文件。
 
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('blog:server');
-var http = require('http');
+var app = require('../app');//引入我们上面app.js导出的app实例
+var debug = require('debug')('blog:server');//引入打印调试日志的debug模块，并设置名称。
+var http = require('http');//引入http
 
 /**
- * Get port from environment and store in Express.
+ * Get port from environment and store in Express. 从环境变量中获取端口号并存放到express中
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+var port = normalizePort(process.env.PORT || '3000');//设置端口号
+app.set('port', port);//设置端口号
 
 /**
- * Create HTTP server.
+ * Create HTTP server.创建http服务器
  */
 
 var server = http.createServer(app);
@@ -30,27 +30,27 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Normalize a port into a number, string, or false.
+ * Normalize a port into a number, string, or false.把一个端口处理成一个数字或字符串或者false
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  var port = parseInt(val, 10);//先试图转成10进制数字
 
   if (isNaN(port)) {
     // named pipe
-    return val;
+    return val;//转不成数字就当作命名管道来处理
   }
 
   if (port >= 0) {
-    // port number
+    // port number如果端口大于0就返回端口
     return port;
   }
 
-  return false;
+  return false;//不是命名管道，也不是正常端口就返回false
 }
 
 /**
- * Event listener for HTTP server "error" event.
+ * Event listener for HTTP server "error" event.服务器的错误事件监听器
  */
 
 function onError(error) {
@@ -62,18 +62,18 @@ function onError(error) {
     ? 'Pipe ' + port
     : 'Port ' + port;
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
+  // handle specific listen errors with friendly messages 更友好的处理特定的监听错误
+  switch (error.code) { //错误编码
     case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
+      console.error(bind + ' requires elevated privileges');//没有权限绑定指定的端口
+      process.exit(1);//异常退出
       break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
+    case 'EADDRINUSE'://端口被占用
+      console.error(bind + ' is already in use');//端口被占用
+      process.exit(1);//异常退出
       break;
     default:
-      throw error;
+      throw error;//其它的情况抛出错误并中止进程
   }
 }
 
@@ -82,9 +82,9 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  var addr = server.address();//  var addr = server.address();//取得服务器的地址
+  var bind = typeof addr === 'string'//监听地址如果是字符串返回命名管道名，如果是数字返回端口
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  debug('Listening on ' + bind);//记录日志
 }

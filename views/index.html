@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>a</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/mkui-base.css"/>
+  </head>
+  <body>
+
+  <!--公用头部-->
+  <% include public/header.html%>
+
+   
+   <article class="list-pictxt">
+   		<ul>
+			<%
+				for(var i=0;i<articles.length;i++){
+					var article = articles[i];
+			%>
+			<li>
+				<figure>
+					<img src="<%=article.user.avatar%>" alt="<%=article.user.name%>" />
+				</figure>
+				<h3><%=article.title%></h3>
+				<p><%-article.content%><a href="#">详细</a>
+					<img src="<%=article.img%>" width="100" alt="">
+				</p>
+			</li>
+
+			<%
+				}
+			%>
+
+
+   		</ul>
+   </article>
+   
+   <section>
+   	 <div class="page">
+   	 	<ul>
+   	 		<li><a href="">首页</a></li>
+   	 		<li><a href="">2</a></li>
+   	 		<li><a href="">3</a></li>
+   	 		<li><a href="">4</a></li>
+   	 		<li><a href="">5</a></li>
+   	 		<li><a href="">6</a></li>
+   	 		<li><a href="">7</a></li>
+   	 		<li><a href="">8</a></li>
+   	 		<li class="current"><a href="">9</a></li>
+   	 		<li><a href="">10</a></li>
+   	 		<li><a href="">末页</a></li>
+   	 	</ul>
+   	 </div>
+   </section>
+
+
+  <!--公用footer-->
+  <% include public/footer.html%>
+  </body>
+</html>

@@ -1,8 +1,155 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*文章页面*/
+.col-12{
+  width: 1000px;
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+header{
+  height: 50px;
+  background: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+}
+header>nav>ul>li{
+  display: inline-block;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+}
+.list-pictxt{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1100px;
+}
+.list-pictxt ul li{
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.list-pictxt ul li:last-child{
+  border-bottom: none;
+}
+.list-pictxt ul li figure{
+  width: 80px;
+  height: 80px;
+  background: #F3F3F3;
+  float: left;
+  margin-right: 10px;
+
+}
+.list-pictxt ul li h3{
+  font-size: 18px;
+  color: #333;
+}
+.list-pictxt ul li p{
+  font-size: 14px;
+  color: #666;
+}
+.list-pictxt ul li p a{
+  font-size: 14px;
+  color: #0F9AE0;
 }
 
-a {
-  color: #00B7FF;
+.page{
+  width: 1110px;
+  height: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.page>ul>li>a{
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 4px;
+  margin-left: 5px;
+  float: left;
+  border: 1px solid #ddd;
+  transition: all 0.5s linear 0s;
+}
+.page>ul>li.current>a{
+  background: #00B7FF;
+  color: #fff;
+  border: none;
+}
+/*注册页面*/
+input{
+  border: 1px solid #ddd;
+  transition: all 0.85s linear 0s;
+}
+input:hover{
+  border: 1px solid #00B7FF;
+}
+.form-reg{
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.form input,.form span{
+  margin-left: 10px;
+  margin-right: 10px;
+  display: block;
+  width: 100%;
+  line-height: 32px;
+  padding: 5px 5px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.form span{
+  background: #0F9AE0;
+  color: #fff;
+  text-align: center;
+}
+/*添加文章*/
+label{
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+#file{
+  appearance: none;
+
+}
+textarea{
+  width: 600px;
+  height: 500px;
+  border-radius: 4px;
+  border:1px solid #ddd;
+  margin-left: 10px;
+  padding: 5px;
+  transition: all 0.5s linear 0s;
+}
+textarea:focus{
+  border:1px solid #0F9AE0;
+}
+
+footer{
+  height: 55px;
+  line-height: 55px;
+  background: #f6f6f6;
+  border-top:1px solid #ddd;
+  font-size:16px;
+ /* position: fixed;
+  bottom: 0;
+  width: 100%;*/
+}
+
+.tips{
+  width: 1110px;
+  height: 44px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #8cc9db;
+  border-radius: 4px;
+  line-height: 44px;
+  padding-left: 5px;
+  font-size: 14px;
+  margin-top: 10px;
 }

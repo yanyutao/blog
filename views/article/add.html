@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link rel="stylesheet" type="text/css" href="/stylesheets/mkui-base.css"/>
+	<link rel="stylesheet" href="/stylesheets/style.css"/>
+</head>
+<body>
+<!--公用header-->
+<% include ../public/header.html%>
+<form method="post" action="/article/add" enctype="multipart/form-data">
+   <article class="form mt-20 form-reg">
+	   	<div class="group">
+	   		<label for="">文章标题</label>
+	   		<input type="text" name="title" placeholder="请输入标题" />
+	   	</div>
+	   	<div class="group">
+	   		<label for="">文章内容</label>
+	   		<textarea name="content"></textarea>
+	   	</div>
+	   	<div class="group">
+	   		<label for="">上传内容</label>
+	   		<input id="file" name="img" type="file" />
+	   	</div>
+	   	<div class="group">
+			<button type="submit">发布</button>
+	   		<!--<span>发布</span>-->
+	   	</div>
+   </article>
+</form>
+   <!--公用footer-->
+   <% include ../public/footer.html%>
+</body>
+</html>
