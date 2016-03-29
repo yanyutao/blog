@@ -3,7 +3,7 @@ var router = express.Router();//生成一个路由实例
 var articleModel = require('../model/article');//引入文章模型
 var markdown = require('markdown').markdown;
 /* GET home page. */
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   //从session中获取用户信息
   //第二个参数对象最后会合并到res.locals对象上，并渲染模板
   //先配置参数，然后在执行查询
@@ -17,8 +17,14 @@ router.get('/', function(req, res, next) {
       article.content = markdown.toHTML(article.content);
     });
     res.render('index',{articles:articles})
+    res.locals.user = req.session.user;
   });
   //res.render('index', {});//获取用户已经登录,注册成功的时候存入到req.session.user中
+});*/
+
+router.get('/', function(req, res, next) {
+  res.redirect('/article/list/1/2');
 });
+
 
 module.exports = router;

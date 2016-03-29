@@ -153,3 +153,30 @@ footer{
   font-size: 14px;
   margin-top: 10px;
 }
+
+.title{
+  height:60px;
+  line-height:60px;
+  text-align: center;
+  border-bottom:1px solid #dddddd;
+  margin:10px;
+}
+.article-cont{
+  margin:10px;
+  border:1px solid #ddd;
+  border-radius:4px;
+  background: #f2f2f2;
+}
+.btn-group{
+  display: block;
+  margin:10px;
+  text-align: center;
+}
+.btn{
+  border-radius:4px;
+  background: #0f9ae0;
+  color: #fff;
+}
+.btn:nth-child(2){
+  background: tan;
+}

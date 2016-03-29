@@ -11,6 +11,7 @@ exports.checkLogin = function(req,res,next){
 //要求下面的路由必须未登录后才能访问
 exports.checkNotLogin = function(req,res,next){
     if(req.session.user){
+
         req.flash('error','已登录');
         res.redirect('/');
     }else{

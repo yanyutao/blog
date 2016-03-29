@@ -44,15 +44,6 @@ var flash =require('connect-flash');
 //flash依赖session
 app.use(flash());
 
-//配置模板中间件，记录注册后的req.session.user
-app.use(function(req,res,next){
-  //res.locals才是真正的渲染模块
-  res.locals.user = req.session.user;
-  //添加成功和失败 flash取出来的是个数组
-  res.locals.success = req.flash('success').toString();//转成字符串
-  res.locals.error = req.flash('error').toString();
-  next();
-})
 
 
 //模块加载完毕后，使用中间件
@@ -67,6 +58,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 //设置public文件夹为存放静态文件的目录。
 app.use(express.static(path.join(__dirname, 'public')));
+
+//配置模板中间件，记录注册后的req.session.user
+app.use(function(req,res,next){
+  //res.locals才是真正的渲染模块
+  res.locals.user = req.session.user;
+  res.locals.keyword = req.session.keyword;
+  console.log(res.locals.user)
+  //添加成功和失败 flash取出来的是个数组
+  res.locals.success = req.flash('success').toString();//转成字符串
+  res.locals.error = req.flash('error').toString();
+  next();
+})
+
 
 //使用路由，中间件
 app.use('/', routes);

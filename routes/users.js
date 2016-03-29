@@ -3,7 +3,7 @@ var router = express.Router();
 //引入数据库模型
 var userModel = require('../model/user');
 var validate = require('../middle/index');
-
+var crypto = require('crypto');
 /*
 req.query(处理 get 请求，获取查询字符串)
 GET /index.html?name=zfpx
@@ -19,6 +19,7 @@ req.body.name
  * 用户注册 要求登录前才能访问
  */
 router.get('/reg',validate.checkNotLogin,function(req,res){
+
   res.render('user/reg', { title: 'reg' });
 });
 
@@ -30,7 +31,7 @@ router.post('/reg',validate.checkNotLogin,function(req,res){
     //头像赋值加密
     user.avatar = "https://secure.gravatar.com/avatar/"+md5(user.email);
     user.password =  md5(user.password);
-    console.log(user);
+
     //创建文档
     userModel.create(user,function(err,doc){
         if(err){
@@ -40,6 +41,8 @@ router.post('/reg',validate.checkNotLogin,function(req,res){
         }else{
             //把保存及之后的用户放置到此用户回话的user属性
             req.session.user = doc;
+
+            console.log(req.session.user)
             //增加一个成功的提示
             req.flash('success','注册成功');
             console.log(req.session)
@@ -85,6 +88,6 @@ router.get('/logout',validate.checkLogin,function(req,res){
 module.exports = router;
 
 function md5(str){
-    var crypto = require('crypto');
+
     return crypto.createHash('md5').update(str).digest('hex');//hex十六进制
 }
